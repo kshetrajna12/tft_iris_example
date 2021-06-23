@@ -122,9 +122,9 @@ def run_transformation_pipeline(raw_input_location, transformed_data_location,
             raw_metadata = create_raw_metadata()
             raw_dataset = (raw_data, raw_metadata)
             transformed_dataset, transform_fn = analyze_and_transform(raw_dataset) 
-            transformed_dataset[0] | beam.Map(print)
-#             write_tfrecords(transformed_dataset, transformed_data_location)
-#             write_transform_artefacts(transform_fn, transform_artefact_location)
+            # transformed_dataset[0] | beam.Map(print)
+            write_tfrecords(transformed_dataset, transformed_data_location)
+            write_transform_artefacts(transform_fn, transform_artefact_location)
 
 
 if __name__ == "__main__":
